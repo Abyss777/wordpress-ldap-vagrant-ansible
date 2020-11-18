@@ -5,11 +5,15 @@
     apt:
       update_cache=yes
       cache_valid_time=3600
+  - name: Install unzip
+    apt:
+      name: 'unzip'
 
 - name: Web server
   hosts: web
   roles:
    - apache
+   - wordpress
 - name: DB server
   hosts: db
   roles:
