@@ -27,6 +27,7 @@
     state: absent
     login_user: root
     login_password: "{{ mysql_root_password }}"
+    login_unix_socket: /var/run/mysqld/mysqld.sock
   no_log: true
   tags: [ mysql ]
 
@@ -36,6 +37,7 @@
     state: absent
     login_user: root
     login_password: "{{ mysql_root_password }}"
+    login_unix_socket: /var/run/mysqld/mysqld.sock
   tags: [ mysql ]
 
 - name: Creates database for WordPress
@@ -44,6 +46,7 @@
     state: present
     login_user: root
     login_password: "{{ mysql_root_password }}"
+    login_unix_socket: /var/run/mysqld/mysqld.sock
   tags: [ mysql ]
 
 - name: Create MySQL user for WordPress
@@ -55,6 +58,7 @@
     state: present
     login_user: root
     login_password: "{{ mysql_root_password }}"
+    login_unix_socket: /var/run/mysqld/mysqld.sock
   no_log: true
   tags: [ mysql ]
   

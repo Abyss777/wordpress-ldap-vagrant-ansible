@@ -1,16 +1,16 @@
 ---
-# WordPress Configuration
+# WordPress installation
 - name: Download and unpack latest WordPress
   unarchive:
     src: https://wordpress.org/latest.tar.gz
-    dest: "/var/www/{{ http_host }}"
+    dest: "/var/www/"
     remote_src: yes
-    creates: "/var/www/{{ http_host }}/wordpress"
+    creates: "/var/www/wordpress/wp-config.php"
   tags: [ wordpress ]
 
 - name: Set ownership
   file:
-    path: "/var/www/{{ http_host }}"
+    path: "/var/www/wordpress"
     state: directory
     recurse: yes
     owner: www-data
@@ -18,23 +18,15 @@
   tags: [ wordpress ]
 
 - name: Set permissions for directories
-  shell: "/usr/bin/find /var/www/{{ http_host }}/wordpress/ -type d -exec chmod 750 {} \\;"
+  shell: "/usr/bin/find /var/www/wordpress/ -type d -exec chmod 750 {} \\;"
   tags: [ wordpress ]
 
 - name: Set permissions for files
-  shell: "/usr/bin/find /var/www/{{ http_host }}/wordpress/ -type f -exec chmod 640 {} \\;"
+  shell: "/usr/bin/find /var/www/wordpress/ -type f -exec chmod 640 {} \\;"
   tags: [ wordpress ]
 
 - name: Set up wp-config
   template:
     src: "files/wp-config.php.j2"
-    dest: "/var/www/{{ http_host }}/wordpress/wp-config.php"
-  tags: [ wordpress ] 
-
-- name: Download and unpack latest LDAP plugin
-  unarchive:
-    src: https://downloads.wordpress.org/plugin/ldap-login-for-intranet-sites.latest-stable.zip
-    dest: "/var/www/{{ http_host }}/wordpress/wp-content/plugins/"
-    remote_src: yes
-    creates: "/var/www/{{ http_host }}/wordpress/wp-content/plugins/ldap-login-for-intranet-sites"
+    dest: "/var/www/wordpress/wp-config.php"
   tags: [ wordpress ]

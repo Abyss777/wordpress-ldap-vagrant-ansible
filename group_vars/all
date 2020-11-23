@@ -10,6 +10,13 @@ mysql_password: "password"
 php_modules: [ 'php-curl', 'php-gd', 'php-mbstring', 'php-xml', 'php-xmlrpc', 'php-soap', 'php-intl', 'php-zip', 'php-ldap' ]
 
 #HTTP Settings
-http_host: "vise"
-http_conf: "vise.conf"
+http_host: "192.168.1.2"
 http_port: "80"
+
+#Wordpress Site Settings
+wp_title: "vise"
+wp_admin: "vise"
+wp_admin_password: "vise"
+wp_admin_email: "vise@example.com"
+
+wp_ldap_uri: "ldap://cn=read-only-admin,dc=example,dc=com:password@ldap.forumsys.com/dc=example,dc=com"
