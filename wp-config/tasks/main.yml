@@ -12,6 +12,7 @@
   
 - name: Make finish installation
   shell: 'sudo -u www-data /usr/bin/wp --path=/var/www/wordpress/ core install --url="http://{{ http_host }}/" --title="{{ wp_title }}" --admin_name={{ wp_admin }} --admin_password={{ wp_admin_password }} --admin_email={{ wp_admin_email }}'
+  no_log: true
   tags: [ wordpress ]
 
 - name: Install and activate LDAP Plugin
@@ -24,4 +25,5 @@
   vars:
     authldap: "{{ lookup('template', 'files/wp-ldap.j2') | from_yaml}}"
   shell: "sudo -u www-data /usr/bin/wp --path=/var/www/wordpress/ option update authLDAPOptions --format=json '{{ authldap | to_json}}'"
+  no_log: true
   tags: [ wordpress ]

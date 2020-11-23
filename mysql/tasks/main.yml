@@ -23,7 +23,6 @@
 - name: Remove all anonymous user accounts
   mysql_user:
     name: ''
-    host_all: yes
     state: absent
     login_user: root
     login_password: "{{ mysql_root_password }}"
