@@ -17,14 +17,15 @@ Vagrant.configure("2") do |config|
     ansible.playbook = "playbook.yml"
     ansible.become = true
   end
+  
+  config.vm.define "db" do |db|
+    db.vm.hostname = "db"
+    db.vm.network "private_network", ip: "192.168.1.3"
+  end
 
   config.vm.define "web" do |web|
     web.vm.hostname = "web"
     web.vm.network "private_network", ip: "192.168.1.2"
   end
 
-  config.vm.define "db" do |db|
-    db.vm.hostname = "db"
-    db.vm.network "private_network", ip: "192.168.1.3"
-  end
 end

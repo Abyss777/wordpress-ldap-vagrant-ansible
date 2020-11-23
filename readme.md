@@ -24,6 +24,6 @@ Using:
 ```
 vagrant up
 ```
-Connect to the http://192.168.1.2/ and login to wordpress with on of LDAP users (tesla:password for example)
+Connect to the http://192.168.1.2/wp-admin/ and login to wordpress with on of LDAP users (tesla:password for example)
 
 Configuration mostly done with `group_vars/all` and `Vagrantfile`

@@ -69,3 +69,7 @@
     owner: root
     mode: 0644
   tags: [ mysql ]
+
+- name: Start MySQL Service
+  service: name=mysql state=restarted
+  tags: [ mysql ]
