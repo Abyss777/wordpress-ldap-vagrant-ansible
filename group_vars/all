@@ -20,3 +20,6 @@ wp_admin_password: "vise"
 wp_admin_email: "vise@example.com"
 
 wp_ldap_uri: "ldap://cn=read-only-admin,dc=example,dc=com:password@ldap.forumsys.com/dc=example,dc=com"
+
+# Service User
+serviceuser_password: "serviceuser_password"

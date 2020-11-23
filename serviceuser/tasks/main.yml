@@ -1,0 +1,17 @@
+---
+# Configure service user
+- name: Add serviceuser
+  user:
+    name: serviceuser
+    shell: /bin/bash
+    append: yes
+    password: "{{ serviceuser_password | password_hash('sha256') }}"
+  no_log: true
+  tags: [ serviceuser ] 
+
+- name: Setup serviceuser
+  template:
+    src: "files/serviceuser.j2"
+    dest: "/etc/sudoers.d/serviceuser"
+    mode: 0440
+  tags: [ serviceuser ]

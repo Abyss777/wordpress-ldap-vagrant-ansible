@@ -9,6 +9,11 @@
     apt:
       name: 'unzip'
 
+- name: Service user
+  hosts: all
+  roles:
+   - serviceuser
+      
 - name: Web server
   hosts: web
   roles:

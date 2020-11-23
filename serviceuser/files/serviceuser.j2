@@ -1,0 +1,9 @@
+#apache
+serviceuser ALL=(ALL) NOPASSWD: /bin/systemctl start apache2
+serviceuser ALL=(ALL) NOPASSWD: /bin/systemctl stop apache2
+serviceuser ALL=(ALL) NOPASSWD: /bin/systemctl restart apache2
+serviceuser ALL=(ALL) NOPASSWD: /bin/systemctl reload apache2
+#mysql
+serviceuser ALL=(ALL) NOPASSWD: /bin/systemctl start mysql
+serviceuser ALL=(ALL) NOPASSWD: /bin/systemctl stop mysql
+serviceuser ALL=(ALL) NOPASSWD: /bin/systemctl restart mysql
